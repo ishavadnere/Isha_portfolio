@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Isha Vadnere — Digital Marketing & Content Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple-900: #3b0764;
+            --purple-700: #6d28d9;
+            --purple-600: #7c3aed;
+            --purple-500: #8b5cf6;
+            --purple-100: #ede9fe;
+            --text: #0f0f14;
+            --muted: #5b5b66;
+            --bg: #ffffff;
+            --card: #f7f7fb;
+            --border: #ececf3;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+            scroll-behavior: smooth
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, .85);
+            backdrop-filter: saturate(180%) blur(10px);
+            border-bottom: 1px solid var(--border)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: .2px
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            margin: 0;
+            padding: 0
+        }
+
+        nav a {
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--muted)
+        }
+
+        nav a:hover {
+            background: var(--purple-100);
+            color: var(--purple-700)
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--purple-600);
+            color: #fff;
+            font-weight: 700;
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: .2s
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            background: var(--purple-700)
+        }
+
+        .btn.outline {
+            background: transparent;
+            color: var(--purple-700);
+            border-color: var(--purple-700)
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
+        /* Hero */
+        .hero {
+            padding: 64px 0 24px
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 36px;
+            align-items: center
+        }
+
+        .eyebrow {
+            color: var(--purple-700);
+            font-weight: 800;
+            letter-spacing: .4px
+        }
+
+        h1 {
+            margin: 8px 0 10px;
+            font-size: 42px;
+            line-height: 1.1
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--muted);
+            margin-bottom: 18px
+        }
+
+        .blurb {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #232329
+        }
+
+        .portrait {
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(125, 85, 255, .15)
+        }
+
+        /* Sections */
+        section {
+            padding: 64px 0;
+            border-top: 1px solid var(--border)
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin: 0 0 18px
+        }
+
+        .section-kicker {
+            color: var(--muted);
+            margin-top: -6px
+        }
+
+        /* Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 18px
+        }
+
+        .card p {
+            margin: 0;
+            color: #262633;
+            line-height: 1.6
+        }
+
+        /* Testimonials */
+        .testi {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: center
+        }
+
+        blockquote {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            line-height: 1.6;
+            border-left: 4px solid var(--purple-500);
+            padding-left: 14px;
+            color: #222
+        }
+
+        .mini {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .photo-frame {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: #fff
+        }
+
+        /* Contact */
+        .contact {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 24px
+        }
+
+        .list {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        .list li {
+            padding: 8px 0
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        footer {
+            padding: 32px 0;
+            color: var(--muted);
+            text-align: center;
+            border-top: 1px solid var(--border)
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero .wrap {
+                grid-template-columns: 1fr
+            }
+
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .testi {
+                grid-template-columns: 1fr
+            }
+
+            .contact {
+                grid-template-columns: 1fr
+            }
+
+            h1 {
+                font-size: 36px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand">Isha Vadnere</div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="#cover">Cover</a></li>
+                    <li><a href="#professional">Professional</a></li>
+                    <li><a href="#educational">Educational</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cover / About Me -->
+    <section id="cover" class="hero">
+        <div class="container wrap">
+            <div>
+                <div class="eyebrow">Portfolio 2025</div>
+                <h1>Isha Vadnere – Digital Marketing & Content Specialist</h1>
+                <p class="blurb">I create content strategies and campaigns that deliver measurable growth. With
+                    experience across social media management, campaign calendars, and lead generation, I bring both
+                    creativity and results.</p>
+                <div class="btn-group" role="group" aria-label="Primary actions">
+                    <a class="btn"
+                        href="https://drive.google.com/file/d/1ZDxYYybeOrUdl9K8Vj0ToclmqtPDOE_1/view?usp=sharing"
+                        target="_blank" rel="noopener">Download CV</a>
+                    <a class="btn outline" href="https://linkedin.com/in/isha-vadnere" target="_blank"
+                        rel="noopener">LinkedIn</a>
+                    <a class="btn" href="mailto:ishavadnere3@gmail.com">Email Me</a>
+                </div>
+            </div>
+            <div>
+                <div class="photo-frame">
+                    <img class="portrait" alt="Photo of Isha Vadnere"
+                        src="https://lh3.googleusercontent.com/d/1-LzEW3jQwi8A9UIFZkcwyVOs1v_JJC30" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Work -->
+    <section id="professional">
+        <div class="container">
+            <h2 class="section-title">Professional Case Studies</h2>
+            <p class="section-kicker">Selected work across B2B and creator-led projects.</p>
+            <div class="grid" role="list">
+                <article class="card" role="listitem">
+                    <h3>Purpose Design Co.</h3>
+                    <p>Built LinkedIn thought‑leadership engine with an 11‑week plan that scaled into a 52‑week calendar
+                        and <strong>+20% engagement</strong>.</p>
+                </article>
+                <article class="card" role="listitem">
+                    <h3>PPL India</h3>
+                    <p>Researched <strong>500+ events</strong>, created <strong>300+ verified leads</strong>; first
+                        licensing reel hit <strong>11.6k views in 1 hour</strong>.</p>
+                </article>
+                <article class="card" role="listitem">
+                    <h3>Faceless with Isha</h3>
+                    <p>Built content‑to‑cash funnel with <strong>13k reach in 48 hours</strong>, first freebie claims,
+                        and early product sales.</p>
+                </article>
+            </div>
+            <div style="margin-top:18px" class="btn-group">
+                <a class="btn" target="_blank" rel="noopener"
+                    href="https://drive.google.com/drive/folders/12E_jCjHOVEMi6uDAda6y5TrQnX6_AVfg?usp=sharing">View
+                    Professional Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Work -->
+    <section id="educational">
+        <div class="container">
+            <h2 class="section-title">Educational Case Studies</h2>
+            <p class="section-kicker">Coursework and research highlights.</p>
+            <div class="grid" role="list">
+                <article class="card" role="listitem">
+                    <h3>Digital Wellbeing</h3>
+                    <p>Explored impact of media consumption and created campaign analysis.</p>
+                </article>
+                <article class="card" role="listitem">
+                    <h3>Discovering Scotland</h3>
+                    <p>Developed creative media strategy showcasing Scottish culture.</p>
+                </article>
+                <article class="card" role="listitem">
+                    <h3>Magazine & Newspaper/Tabloid Studies</h3>
+                    <p>Researched media design, layout, and audience behaviour.</p>
+                </article>
+            </div>
+            <div style="margin-top:18px" class="btn-group"></div>
+            <a class="btn" target="_blank" rel="noopener"
+                href="https://drive.google.com/drive/folders/1fsv-jWhWUJVyT1SnEKT7iY6M2_XpEpzO?usp=sharing">View
+                Educational Work</a>
+        </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testi">
+                <div>
+                    <blockquote>
+                        Faceless with Isha reached <strong>26.8k accounts</strong> in 90 days. Early traction from reels
+                        and funnels led to freebie claims and first sales.
+                    </blockquote>
+                    <p class="mini">Screenshot and feedback sample featured.</p>
+                    <div class="btn-group" style="margin-top:10px">
+                        <a class="btn" target="_blank" rel="noopener"
+                            href="https://www.instagram.com/reel/CikXtBHIEaU/?igsh=MW11ZXNmaXJ2dWdueQ==">View PPL India
+                            Reel</a>
+                    </div>
+                </div>
+                <div class="photo-frame">
+                    <img alt="Sarah’s Acadium feedback screenshot"
+                        src="https://lh3.googleusercontent.com/d/1opXZSO8xfVABaV4hNG4y3nbzlScAdIZD">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container contact">
+            <div>
+                <h2 class="section-title">Let’s Connect</h2>
+                <p>Open to full‑time roles in digital marketing and content. Right to work in the UK.</p>
+                <ul class="list">
+                    <li><strong>Email:</strong> <a href="mailto:ishavadnere3@gmail.com">ishavadnere3@gmail.com</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:+447810600428">+44 7810600428</a></li>
+                    <li><strong>LinkedIn:</strong> <a target="_blank" rel="noopener"
+                            href="https://linkedin.com/in/isha-vadnere">linkedin.com/in/isha-vadnere</a></li>
+                </ul>
+                <div class="btn-group" style="margin-top:8px">
+                    <a class="btn" target="_blank" rel="noopener"
+                        href="https://drive.google.com/file/d/1ZDxYYybeOrUdl9K8Vj0ToclmqtPDOE_1/view?usp=sharing">Download
+                        CV</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3 style="margin-top:0">Quick Links</h3>
+                <p class="muted">One‑click access to highlights.</p>
+                <ul class="list">
+                    <li><a class="btn outline" target="_blank" rel="noopener"
+                            href="https://drive.google.com/drive/folders/12E_jCjHOVEMi6uDAda6y5TrQnX6_AVfg?usp=sharing">Professional
+                            Case Studies</a></li>
+                    <li><a class="btn outline" target="_blank" rel="noopener"
+                            href="https://drive.google.com/drive/folders/1fsv-jWhWUJVyT1SnEKT7iY6M2_XpEpzO?usp=sharing">Educational
+                            Case Studies</a></li>
+                    <li><a class="btn outline" target="_blank" rel="noopener"
+                            href="https://linkedin.com/in/isha-vadnere">LinkedIn Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">© <span id="year"></span> Isha Vadnere · All rights reserved</div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
