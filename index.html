@@ -126,7 +126,7 @@
 
         /* Hero */
         .hero {
-            padding: 64px 0 24px
+            padding: 28px 0 24px; /* reduced top padding to sit closer under the sticky header */
         }
 
         .hero .wrap {
@@ -148,6 +148,7 @@
             font-size: 42px;
             line-height: 1.1
         }
+        h2 {text-align: center;}
 
         .subtitle {
             font-size: 18px;
@@ -194,6 +195,23 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 18px
+        
+        }
+
+        /* Make cards act like links */
+        .card {
+            cursor: pointer;
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(125,85,255,.06);
+        }
+
+        .card:focus {
+            outline: 3px solid rgba(109,40,217,0.12);
+            outline-offset: 4px;
         }
 
         .card h3 {
@@ -267,25 +285,62 @@
 
         /* Responsive */
         @media (max-width: 900px) {
+            /* tighter hero spacing and improved mobile layout */
+            .hero {
+                padding: 16px 0;
+            }
+
+            section {
+                padding: 32px 0;
+            }
+
             .hero .wrap {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
+                gap: 18px;
             }
 
             .grid {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
             }
 
             .testi {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
             }
 
             .contact {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
             }
 
+            /* typography tweaks */
             h1 {
-                font-size: 36px
+                font-size: 28px;
+                margin-top: 6px;
             }
+            h2 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+            .subtitle, .blurb {
+                font-size: 15px;
+                text-align: center;
+            }
+
+            /* header / nav compactness */
+            .nav { padding: 10px 0; }
+            .brand { font-size: 16px; }
+            nav ul { gap: 10px; font-size: 14px; }
+
+            /* portrait + photo frame */
+            .portrait {
+                max-width: 220px;
+                margin: 12px auto 0;
+                border-radius: 14px;
+                box-shadow: 0 8px 24px rgba(125,85,255,.12);
+            }
+            .photo-frame { display:flex; justify-content:center; align-items:center; }
+
+            /* buttons centered and tighter on small screens */
+            .btn-group { justify-content: center; gap: 8px; flex-wrap: wrap; }
         }
     </style>
 </head>
@@ -293,10 +348,10 @@
 <body>
     <header>
         <div class="container nav">
-            <div class="brand">Isha Vadnere</div>
+            <!-- <div class="brand">Isha Vadnere</div> -->
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="#cover">Cover</a></li>
+                    <!-- <li><a href="#cover">Cover</a></li> -->
                     <li><a href="#professional">Professional</a></li>
                     <li><a href="#educational">Educational</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
@@ -313,9 +368,7 @@
                 <div class="eyebrow"></div>
                 <h1>Isha Vadnere </h1>
                 <h2>Marketing & Communications Executive</h2>
-                <p class="blurb">I create content strategies and campaigns that deliver measurable growth. With
-                    experience across social media management, campaign calendars, and lead generation, I bring both
-                    creativity and results.</p>
+                <p class="blurb">Marketing & Communications Executive specialising in content strategies, performance-driven campaigns, and engagement funnels that scale brand visibility. I’ve delivered a 31% increase in LinkedIn followers, boosted engagement by up to 38%, and produced viral traction with 11.6K reel views in one hour. I combine creative execution with KPI optimisation and stakeholder alignment across B2B and emerging brand projects.</p>
                 <div class="btn-group" role="group" aria-label="Primary actions">
                     <a class="btn"
                         href="https://drive.google.com/file/d/10xeBkDXB-HIniTikTmSlYF_ncAp6mmV8/view?usp=sharing"
@@ -340,29 +393,32 @@
     <section id="professional">
         <div class="container">
             <h2 class="section-title">Professional Case Studies</h2>
-            <p class="section-kicker">Selected work across B2B and creator-led projects.</p>
+            
             <div class="grid" role="list">
-                <article class="card" role="listitem">
-                    <h3>Purpose Design Co.</h3>
-                    <p>Built LinkedIn thought‑leadership engine with an 11‑week plan that scaled into a 52‑week calendar
-                        and <strong>+20% engagement</strong>.</p>
+                <article class="card" role="listitem" data-href="https://drive.google.com/file/d/14Y1nk1ITn7HrGY1oBUBIN7rtMzgUK34C/view?usp=sharing" tabindex="0" aria-label="Open Purpose Design Co. case study">
+                    <h3>Purpose Design Co - LinkedIn Growth & Thought Leadership System </h3>
+                    <p>Developed a content strategy that scaled from an 11-week plan to a 52-week calendar, managing Buffer scheduling and aligning messaging with brand positioning, resulting in a <strong>31% follower increase, 20% rise in impressions</strong>.</p>
+                        <div style="margin-top:18px" class="btn-group">
+                <!-- <a class="btn" target="_blank" rel="noopener"
+                    href="https://drive.google.com/drive/folders/12E_jCjHOVEMi6uDAda6y5TrQnX6_AVfg?usp=sharing">View
+                    Professional Work</a> -->
+            </div>
                 </article>
-                <article class="card" role="listitem">
-                    <h3>PPL India</h3>
-                    <p>Researched <strong>500+ events</strong>, created <strong>300+ verified leads</strong>; first
-                        licensing reel hit <strong>11.6k views in 1 hour</strong>.</p>
+                <article class="card" role="listitem" data-href="https://drive.google.com/file/d/11BPsezBD9877zkVXPbIAzaxxOhx6jobV/view?usp=sharing" tabindex="0" aria-label="Open PPL India case study">
+                    <h3>PPL India – Lead Generation & Licensing Awareness Campaign </h3>
+                    <p>Generated <strong>300+ qualified licensing leads by researching 500+ events</strong>, produced a reel that reached <strong>11.6K views in one hour</strong>; triggering enquiries, and built a  <strong>1,000+ entry CMS database </strong> to support outreach.</p>
                 </article>
-                <article class="card" role="listitem">
-                    <h3>Faceless with Isha</h3>
-                    <p>Built content‑to‑cash funnel with <strong>13k reach in 48 hours</strong>, first freebie claims,
-                        and early product sales.</p>
+                <article class="card" role="listitem" data-href="https://drive.google.com/file/d/1ZNPE6r9iPCIRhB-PINJ00NmHQMCgJLYi/view?usp=sharing" tabindex="0" aria-label="Open Faceless with Isha case study">
+                    <h3>Faceless with Isha - Self-Launched Content-to-Cash Funnel Project </h3>
+                    <p>Executed a content-led marketing funnel using reels and low-ticket offers, achieving  <strong>13k reach in 48 hours</strong>, converting freebie claims into early sales, and demonstrating full awareness-to-conversion strategy execution.
+</p>
                 </article>
             </div>
-            <div style="margin-top:18px" class="btn-group">
+            <!-- <div style="margin-top:18px" class="btn-group">
                 <a class="btn" target="_blank" rel="noopener"
                     href="https://drive.google.com/drive/folders/12E_jCjHOVEMi6uDAda6y5TrQnX6_AVfg?usp=sharing">View
                     Professional Work</a>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -370,19 +426,18 @@
     <section id="educational">
         <div class="container">
             <h2 class="section-title">Educational Case Studies</h2>
-            <p class="section-kicker">Coursework and research highlights.</p>
             <div class="grid" role="list">
-                <article class="card" role="listitem">
-                    <h3>Digital Wellbeing</h3>
-                    <p>Explored impact of media consumption and created campaign analysis.</p>
+                <article class="card" role="listitem" data-href="https://docs.google.com/document/d/1SmG0nDR8LMx5GzRrmxMojCemJC0-vrGW/edit?usp=sharing&ouid=118197882317019129916&rtpof=true&sd=true" tabindex="0" aria-label="Open Digital Wellbeing case study">
+                    <h3>Disconnect to Rebalance – Digital Detox Research & Interactive Timeline Project</h3>
+                    <p>Researched the psychological and behavioural impact of excessive screen time and transformed insights into an interactive digital timeline, supported by data charts highlighting rising global screen dependency.</p>
                 </article>
-                <article class="card" role="listitem">
-                    <h3>Discovering Scotland</h3>
-                    <p>Developed creative media strategy showcasing Scottish culture.</p>
+                <article class="card" role="listitem" data-href="https://docs.google.com/document/d/1xaXOGSMeqpqAozVfgQ2q5tS7tokx40Xp/edit?usp=sharing&ouid=118197882317019129916&rtpof=true&sd=true" tabindex="0" aria-label="Open Discovering Scotland case study">
+                    <h3>Discovering Scotland – Cultural Tourism Storytelling with StoryMap Integration </h3>
+                    <p>Developed a narrative-led tourism project exploring Scotland’s northern regions, presented through an immersive StoryMap experience blending cultural insights, multimedia elements, and travel marketing perspectives.</p>
                 </article>
-                <article class="card" role="listitem">
-                    <h3>Magazine & Newspaper/Tabloid Studies</h3>
-                    <p>Researched media design, layout, and audience behaviour.</p>
+                <article class="card" role="listitem" data-href="https://drive.google.com/drive/folders/1hF3ZS7yTJNOiYawcWj9YSql6GY_vcGsq?usp=sharing" tabindex="0" aria-label="Open Magazine & Newspaper case study">
+                    <h3>Magazine, Tabloid & Newspaper Studies – Visual Media Analysis & Engagement Mapping</h3>
+                    <p>Analysed how media formats influence reader perception using layout comparison, headline impact tracking, and engagement-driven chart analysis to understand audience behaviour.</p>
                 </article>
             </div>
             <div style="margin-top:18px" class="btn-group"></div>
@@ -400,10 +455,10 @@
             <div class="testi">
                 <div>
                     <blockquote>
-                        Faceless with Isha reached <strong>26.8k accounts</strong> in 90 days. Early traction from reels
-                        and funnels led to freebie claims and first sales.
+                        Within 90 days, achieved <strong>26.8k accounts</strong> reach and consistent traction through strategic reels, funnel sequencing, and targeted messaging - leading to freebie conversions and first sales.
+                        
                     </blockquote>
-                    <p class="mini">Screenshot and feedback sample featured.</p>
+                    
                     <div class="btn-group" style="margin-top:10px">
                         <a class="btn" target="_blank" rel="noopener"
                             href="https://www.instagram.com/reel/CikXtBHIEaU/?igsh=MW11ZXNmaXJ2dWdueQ==">View PPL India
@@ -423,7 +478,7 @@
         <div class="container contact">
             <div>
                 <h2 class="section-title">Let’s Connect</h2>
-                <p>Open to full‑time roles in digital marketing and content. Right to work in the UK.</p>
+                <p>I’m open to full-time opportunities in digital marketing, communications, and content strategy. Available in the UK with full right to work.</p>
                 <ul class="list">
                     <li><strong>Email:</strong> <a href="mailto:ishavadnere3@gmail.com">ishavadnere3@gmail.com</a></li>
                     <li><strong>Phone:</strong> <a href="tel:+447810600428">+44 7810600428</a></li>
@@ -461,10 +516,38 @@
         // Set current year
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+    <script>
+        // Make article.cards with a data-href clickable and keyboard-accessible.
+        (function () {
+            const cards = document.querySelectorAll('article.card[data-href]');
+            cards.forEach(card => {
+                // open in same tab by default; change to '_blank' if you prefer a new tab
+                const openCard = () => { window.location.href = card.dataset.href; };
+
+                card.addEventListener('click', (e) => {
+                    // Ignore clicks originating from inner links/buttons
+                    const target = e.target;
+                    if (target.closest('a') || target.closest('button')) return;
+                    openCard();
+                });
+
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openCard();
+                    }
+                });
+
+                // Ensure it's reachable by keyboard
+                card.setAttribute('role', card.getAttribute('role') || 'link');
+            });
+        })();
+    </script>
 </body>
 
 
 </html>
+
 
 
 
